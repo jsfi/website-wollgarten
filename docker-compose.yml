@@ -1,0 +1,41 @@
+version: '2'
+
+volumes:
+    database_data:
+        driver: local
+
+services:
+    # setup nginx
+    nginx:
+        image: nginx:latest
+        ports:
+            - 80:80
+        links:
+            - mysql
+        volumes:
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        volumes_from:
+            - php
+
+    # setup PHP
+    php:
+        build: ./docker/php/
+        expose:
+            - 9000
+        volumes:
+            - .:/var/www/vhost
+
+    # setup database
+    mysql:
+        image: mysql:latest
+        expose:
+            - 3306
+        ports:
+            - 3306:3306
+        volumes:
+            - database_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: wollgarten
+            MYSQL_DATABASE: wollgarten
+            MYSQL_USER: wollgarten
+            MYSQL_PASSWORD: wollgarten

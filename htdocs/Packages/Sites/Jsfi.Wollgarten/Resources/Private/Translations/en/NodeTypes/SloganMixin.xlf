@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Jsfi.Wollgarten" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="properties.slogan" xml:space="preserve">
+				<source>Slogan</source>
+			</trans-unit>
+			<trans-unit id="properties.titleOverride.textFieldEditor.placeholder" xml:space="preserve">
+				<source>below logo, max. 60 chars</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

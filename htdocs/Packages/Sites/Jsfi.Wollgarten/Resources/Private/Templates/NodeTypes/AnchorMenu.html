@@ -1,0 +1,27 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<f:if condition="{neos:rendering.inBackend()}">
+	<f:then>
+		<div{attributes -> f:format.raw()}>
+			<nav class="anchor-nav">
+				<ul class="anchor-nav__list">
+					<li class="anchor-nav__item">
+						<span class="anchor-nav__link">Anchor Menu</span>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</f:then>
+	<f:else>
+		<f:if condition="{anchors -> f:count()}">
+			<nav class="anchor-nav">
+				<ul class="anchor-nav__list">
+					<f:for each="{anchors}" as="anchor">
+						<li class="anchor-nav__item">
+							<a href="#{anchor.properties.anchor}" class="anchor-nav__link">{anchor.properties.title -> f:format.stripTags()}</a>
+						</li>
+					</f:for>
+				</ul>
+			</nav>
+		</f:if>
+	</f:else>
+</f:if>

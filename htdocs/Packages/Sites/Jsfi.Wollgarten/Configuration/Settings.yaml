@@ -1,0 +1,25 @@
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Jsfi.Wollgarten:
+            - Main
+            - 'NodeTypes/*'
+  Form:
+    yamlPersistenceManager:
+      savePath: 'resource://Jsfi.Wollgarten/Private/Form/Configuration'
+    presets:
+      default:
+        formElementTypes:
+          'Neos.Form:Base':
+            renderingOptions:
+              templatePathPattern: 'resource://Jsfi.Wollgarten/Private/Form/{@type}.html'
+              partialPathPattern: 'resource://Jsfi.Wollgarten/Private/Form/Partials/{@type}.html'
+              layoutPathPattern: 'resource://Jsfi.Wollgarten/Private/Form/Layouts/{@type}.html'
+          'Neos.Form:FormElement':
+            properties:
+              elementClassAttribute: form__text
+          'Neos.Form:MultiLineText':
+            properties:
+              elementClassAttribute: form__textarea

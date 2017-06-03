@@ -1,0 +1,23 @@
+prototype(Neos.Neos:Content) {
+    attributes.class.@process.nodeType.@if.onlyInBackend = ${nodeAvailable && node.context.inBackend}
+}
+
+prototype(Neos.Neos:ContentCollection) {
+    attributes.class.@process.collectionClass.@if.onlyInBackend = ${nodeAvailable && node.context.inBackend}
+}
+
+prototype(Neos.NodeTypes:Headline) {
+    templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/NodeTypes/Headline.html'
+}
+
+prototype(Neos.NodeTypes:Text) {
+    templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/NodeTypes/Text.html'
+}
+
+prototype(Neos.NodeTypes:Image) {
+    templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/NodeTypes/Image.html'
+}
+
+prototype(Neos.NodeTypes:MultiColumn) < prototype(Neos.Neos:Content) {
+    attributes.class = ${'column-container columns-' + q(node).property('layout')}
+}

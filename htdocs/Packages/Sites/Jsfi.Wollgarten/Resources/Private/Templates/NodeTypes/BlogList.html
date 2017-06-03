@@ -1,0 +1,30 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+<f:if condition="{neos:rendering.inBackend()}">
+	<f:then>
+		<div{attributes -> f:format.raw()}>
+			<p>Blog List</p>
+		</div>
+	</f:then>
+	<f:else>
+		<f:if condition="{blogPosts -> f:count()}">
+			<nav class="blog-posts">
+				<ul class="blog-posts__list">
+					<f:for each="{blogPosts}" as="blogPost">
+						<f:if condition="{blogPost.properties.image}">
+							<li class="blog-posts__item">
+								<neos:link.node node="{blogPost}" class="blog-posts__link">
+									<p class="blog-posts__title">{blogPost.properties.title}</p>
+									<media:image
+										image="{blogPost.properties.image}"
+										width="252" height="168" allowCropping="true"
+										class="blog-posts__img" alt="" />
+								</neos:link.node>
+							</li>
+						</f:if>
+					</f:for>
+				</ul>
+			</nav>
+		</f:if>
+	</f:else>
+</f:if>

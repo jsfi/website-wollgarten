@@ -1,0 +1,39 @@
+'Neos.NodeTypes:Page':
+  ui:
+    inspector:
+      groups:
+        layout:
+          tab: 'meta'
+  properties:
+    layout:
+      ui:
+        inspector:
+          group: 'layout'
+          editorOptions:
+            values:
+              default:
+                label: 'Jsfi.Wollgarten:NodeTypes.Page:properties.layout.selectBoxEditor.values.default'
+              home:
+                label: 'Jsfi.Wollgarten:NodeTypes.Page:properties.layout.selectBoxEditor.values.homepage'
+
+'Jsfi.Wollgarten:BlogPage':
+  superTypes:
+    'Neos.NodeTypes:Page': TRUE
+  ui:
+    label: i18n
+  properties:
+    image:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: i18n
+        inspector:
+          group: 'document'
+          position: 20000
+
+'Neos.Neos:Document':
+  superTypes:
+    'Jsfi.Wollgarten:SloganMixin': TRUE
+
+'Neos.Neos:Shortcut':
+  superTypes:
+    'Jsfi.Wollgarten:SloganMixin': FALSE

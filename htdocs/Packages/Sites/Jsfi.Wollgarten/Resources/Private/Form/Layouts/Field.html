@@ -1,0 +1,19 @@
+{namespace form=Neos\Form\ViewHelpers}
+<f:form.validationResults for="{element.identifier}">
+	<label class="form__element{f:if(condition: validationResults.flattenedErrors, then: ' error')}"<f:if condition="{element.rootForm.renderingOptions.previewMode}"> data-element="{form:form.formElementRootlinePath(renderable:element)}"</f:if>>
+		<span class="form__label">{element -> form:translateElementProperty(property: 'label') -> f:format.nl2br()}</span>
+		<f:comment><f:if condition="{element.required}"></f:if></f:comment>
+		<f:render section="field" />
+		<f:if condition="{validationResults.flattenedErrors}">
+			<span class="form__help">
+				<f:for each="{validationResults.errors}" as="error">
+					{error -> f:translate(id: '{error.code}', arguments: error.arguments, package: '{element.renderingOptions.validationErrorTranslationPackage}', source: 'ValidationErrors')}
+					<br />
+				</f:for>
+			</span>
+		</f:if>
+		<f:if condition="{element.properties.elementDescription}">
+			<span class="form__help__desc">{element -> form:translateElementProperty(property: 'elementDescription')}</span>
+		</f:if>
+	</label>
+</f:form.validationResults>

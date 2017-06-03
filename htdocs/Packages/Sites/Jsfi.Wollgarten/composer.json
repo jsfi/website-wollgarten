@@ -1,0 +1,22 @@
+{
+    "description": "",
+    "type": "neos-site",
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes": "*"
+    },
+    "suggest": {
+        "neos/seo": "*"
+    },
+    "name": "jsfi/wollgarten",
+    "autoload": {
+        "psr-4": {
+            "Jsfi\\Wollgarten\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Jsfi.Wollgarten"
+        }
+    }
+}

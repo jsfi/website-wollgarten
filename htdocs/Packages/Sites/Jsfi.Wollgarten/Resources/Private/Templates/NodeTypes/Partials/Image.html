@@ -1,0 +1,16 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<figure{f:if(condition: imageClassName, then: ' class="{imageClassName}"')}>
+	<f:render partial="SimpleImage" arguments="{_all}" />
+	<f:if condition="{hasCaption}">
+		<figcaption>
+			<f:if condition="{neos:rendering.inBackend()}">
+				<f:then>
+					{neos:contentElement.editable(property: 'caption', node: node)}
+				</f:then>
+				<f:else>
+					{caption -> f:format.raw()}
+				</f:else>
+			</f:if>
+		</figcaption>
+	</f:if>
+</figure>

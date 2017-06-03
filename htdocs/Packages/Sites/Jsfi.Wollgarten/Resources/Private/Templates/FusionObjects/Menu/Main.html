@@ -1,0 +1,16 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<f:render section="nav" arguments="{_all}" />
+
+<f:section name="nav">
+	<nav class="nav">
+		<ul class="nav__list">
+			<f:for each="{items}" as="item">
+				<li class="nav__item">
+					<neos:link.node node="{item.node}" class="nav__link">
+						<span class="nav__link__text">{item.label}</span>
+					</neos:link.node>
+				</li>
+			</f:for>
+		</ul>
+	</nav>
+</f:section>

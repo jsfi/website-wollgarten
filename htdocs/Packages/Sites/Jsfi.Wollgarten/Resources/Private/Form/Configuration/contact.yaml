@@ -1,0 +1,59 @@
+type: 'Neos.Form:Form'
+identifier: contact
+label: Contact
+renderingOptions:
+  submitButtonLabel: Send
+renderables:
+  -
+    type: 'Neos.Form:Page'
+    identifier: page-one
+    label: Contact
+    renderables:
+      -
+        type: 'Neos.Form:SingleLineText'
+        identifier: name
+        label: Name
+        validators:
+          - identifier: 'Neos.Flow:NotEmpty'
+        properties:
+          placeholder: Name
+        defaultValue: ''
+      -
+        type: 'Neos.Form:SingleLineText'
+        identifier: email
+        label: E-Mail
+        validators:
+          - identifier: 'Neos.Flow:NotEmpty'
+          - identifier: 'Neos.Flow:EmailAddress'
+        properties:
+          placeholder: 'E-Mail'
+        defaultValue: ''
+      -
+        type: 'Neos.Form:MultiLineText'
+        identifier: message
+        label: Message
+        validators:
+          - identifier: 'Neos.Flow:NotEmpty'
+        properties:
+          placeholder: 'Your Message'
+        defaultValue: ''
+finishers:
+  -
+    identifier: 'Neos.Form:Email'
+    options:
+      templatePathAndFilename: resource://Jsfi.Wollgarten/Private/Form/Contact/Message.txt
+      subject: Contact from wollgarten.co.uk
+      recipientAddress: contact@wollgarten.co.uk
+      recipientName: 'Wollgarten'
+      senderAddress: '{email}'
+      senderName: '{name}'
+      replyToAddress: '{email}'
+      format: plaintext
+  -
+    identifier: 'Neos.Form:Confirmation'
+    options:
+      message: >
+        <div id="contact">
+          <h3>Thank you for your feedback</h3>
+          <p>We will process it as soon as possible.</p>
+        </div>

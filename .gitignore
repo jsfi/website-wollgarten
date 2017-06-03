@@ -1,0 +1,4 @@
+composer\.phar
+*\.lock
+*\.log
+*\.min\.css

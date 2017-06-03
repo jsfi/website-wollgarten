@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<html>
+<head></head>
+<body>
+<f:section name="body">
+	<header class="header">
+		<div class="header__container">
+			<div class="header__texts">
+				<h1 class="header__title">
+					<f:render partial="Logo" arguments="{class: 'header__title__logo'}"/>
+					<span class="visuallyhidden">{title}</span>
+				</h1>
+				<p class="header__slogan">{slogan}</p>
+			</div>
+			{menus.social -> f:format.raw()}
+		</div>
+	</header>
+
+	{menus.main -> f:format.raw()}
+	{content.main -> f:format.raw()}
+
+	<footer class="footer">
+		{menus.footer -> f:format.raw()}
+	</footer>
+</f:section>
+</body>
+</html>

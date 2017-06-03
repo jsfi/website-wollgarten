@@ -1,0 +1,21 @@
+{
+  "name": "wollgarten.co.uk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style": "postcss htdocs/Packages/Sites/Jsfi.Wollgarten/Resources/Public/css/main.css --no-map -u postcss-css-variables autoprefixer cssnano -o htdocs/Packages/Sites/Jsfi.Wollgarten/Resources/Public/css/main.min.css"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "cssnano": "^3.10.0",
+    "postcss-cli": "^3.0.0",
+    "postcss-css-variables": "^0.7.0"
+  }
+}

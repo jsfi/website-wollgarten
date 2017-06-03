@@ -1,0 +1,16 @@
+prototype(Jsfi.Wollgarten:AnchorMenu) {
+    templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/NodeTypes/AnchorMenu.html'
+    anchors = ${q(node).closest('main').children('[instanceof Neos.Neos:Content]').filter('[anchor][anchor != ""]')}
+}
+
+prototype(Jsfi.Wollgarten:BlogList) {
+    templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/NodeTypes/BlogList.html'
+    blogPosts = ${q(node).closest('[instanceof Neos.NodeTypes:Page]').find('[instanceof Jsfi.Wollgarten:BlogPage]').sort('_creationDateTime', 'DESC')}
+
+    @cache {
+        mode = 'cached'
+        entryTags {
+            1 = 'NodeType_Jsfi.Wollgarten:BlogPage'
+        }
+    }
+}

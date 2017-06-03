@@ -1,0 +1,17 @@
+'Neos.NodeTypes:Headline':
+  superTypes:
+    'Jsfi.Wollgarten:AnchorMixin': TRUE
+
+'Jsfi.Wollgarten:AnchorMenu':
+  superTypes:
+    'Neos.Neos:Content': TRUE
+  ui:
+    label: i18n
+    icon: 'icon-hashtag'
+
+'Jsfi.Wollgarten:BlogList':
+  superTypes:
+    'Neos.Neos:Content': TRUE
+  ui:
+    label: i18n
+    icon: 'icon-th-large'

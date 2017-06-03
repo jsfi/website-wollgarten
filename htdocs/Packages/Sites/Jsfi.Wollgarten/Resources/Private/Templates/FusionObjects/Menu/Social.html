@@ -1,0 +1,18 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<f:render section="nav" arguments="{items: items}" />
+
+<f:section name="nav">
+	<aside class="header__nav">
+		<nav role="navigation">
+			<ul class="header__nav__list">
+				<f:for each="{items}" as="item">
+					<li class="header__nav__item">
+						<neos:link.node node="{item.node}" class="header__nav__link header__nav__{item.node.properties.uriPathSegment}">
+							<span class="visuallyhidden">{item.label}</span>
+						</neos:link.node>
+					</li>
+				</f:for>
+			</ul>
+		</nav>
+	</aside>
+</f:section>

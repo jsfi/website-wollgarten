@@ -1,0 +1,73 @@
+/**
+ * Root Fusion template for the wollgarten.co.uk site
+ */
+page = Neos.Neos:Page {
+	head {
+		metadata = Neos.Fusion:Template {
+			templatePath = 'resource://Neos.Demo/Private/Templates/Page/Default.html'
+			sectionName = 'metadata'
+		}
+
+		stylesheets.site = Neos.Fusion:Template {
+			templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/Page/Default.html'
+			sectionName = 'stylesheets'
+		}
+	}
+
+	body {
+		title = ${q(node).property('title')}
+		slogan = ${q(node).closest('[slogan][slogan != ""]').property('slogan')}
+		templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/Page/Default.html'
+		sectionName = 'body'
+
+		menus {
+			main = Neos.Neos:Menu {
+				entryLevel = 1
+				startingPoint = ${q(site).get(0)}
+				templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/FusionObjects/Menu/Main.html'
+			}
+
+			social = Neos.Neos:Menu {
+				entryLevel = 2
+				startingPoint = ${q(site).children('[uriPathSegment="social"]').get(0)}
+				templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/FusionObjects/Menu/Social.html'
+			}
+
+			footer = Neos.Neos:Menu {
+				entryLevel = 2
+				startingPoint = ${q(site).children('[uriPathSegment="footer"]').get(0)}
+				templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/FusionObjects/Menu/Footer.html'
+			}
+		}
+
+		// These are your content areas, you can define as many as you want, just name them and the nodePath.
+		content {
+			// The default content section
+			main = Neos.Neos:PrimaryContent {
+				nodePath = 'main'
+				default.renderer {
+					tagName = 'main'
+					attributes.class >
+				}
+			}
+		}
+
+		javascripts.site = Neos.Fusion:Template {
+			templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/Page/Default.html'
+			sectionName = 'scripts'
+		}
+	}
+}
+
+default < page
+home < page
+
+home {
+	body {
+		templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/Page/Home.html'
+	}
+}
+
+include: FrontendOptimizations.fusion
+include: CustomElements.fusion
+

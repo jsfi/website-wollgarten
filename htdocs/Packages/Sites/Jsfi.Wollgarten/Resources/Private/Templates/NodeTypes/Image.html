@@ -1,0 +1,11 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+<f:if condition="{neos:rendering.inBackend()}">
+	<f:then>
+		<div{attributes -> f:format.raw()}>
+			<f:render partial="Image" arguments="{_all}" />
+		</div>
+	</f:then>
+	<f:else>
+		<f:render partial="Image" arguments="{_all}" />
+	</f:else>
+</f:if>
