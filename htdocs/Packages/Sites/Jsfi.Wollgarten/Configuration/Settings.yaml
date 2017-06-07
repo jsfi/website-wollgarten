@@ -23,3 +23,15 @@ Neos:
           'Neos.Form:MultiLineText':
             properties:
               elementClassAttribute: form__textarea
+
+  ContentRepository:
+    contentDimensions:
+      'language':
+        default: 'en'
+        defaultPreset: 'en'
+        presets:
+          'en':
+            label: 'English'
+            values: ['en']
+            uriSegment: ''
+
