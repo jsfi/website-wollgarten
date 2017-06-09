@@ -25,6 +25,7 @@ page = Neos.Neos:Page {
 				entryLevel = 1
 				startingPoint = ${q(site).get(0)}
 				templatePath = 'resource://Jsfi.Wollgarten/Private/Templates/FusionObjects/Menu/Main.html'
+				navBg = ${q(node).closest('[navBg][navBg != ""]').property('navBg')}
 			}
 
 			social = Neos.Neos:Menu {

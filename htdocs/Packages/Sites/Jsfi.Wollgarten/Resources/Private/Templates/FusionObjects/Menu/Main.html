@@ -1,9 +1,12 @@
 {namespace neos=Neos\Neos\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+{namespace jsfimedia=Jsfi\Wollgarten\ViewHelpers}
 <f:render section="nav" arguments="{_all}" />
 
 <f:section name="nav">
 	<nav class="nav">
-		<ul class="nav__list">
+		<jsfimedia:responsiveImage image="{navBg}" alt="" class="nav__bg" srcsetWidths="{0: 850, 1: 736, 2: 448, 3: 288}" withSrc="false" />
+		<ul class="nav__list" style="background-image: url('{media:uri.image(image: navBg, maximumWidth: 1584)}')">
 			<f:for each="{items}" as="item">
 				<li class="nav__item">
 					<neos:link.node node="{item.node}" class="nav__link">

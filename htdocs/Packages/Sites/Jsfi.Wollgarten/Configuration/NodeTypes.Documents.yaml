@@ -32,8 +32,10 @@
 
 'Neos.Neos:Document':
   superTypes:
+    'Jsfi.Wollgarten:NavBgMixin': TRUE
     'Jsfi.Wollgarten:SloganMixin': TRUE
 
 'Neos.Neos:Shortcut':
   superTypes:
+    'Jsfi.Wollgarten:NavBgMixin': FALSE
     'Jsfi.Wollgarten:SloganMixin': FALSE

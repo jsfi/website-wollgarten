@@ -112,9 +112,10 @@ class ResponsiveImageViewHelper extends AbstractTagBasedViewHelper
      * @param boolean $async Return asynchronous image URI in case the requested image does not exist already
      * @param string $preset Preset used to determine image configuration
      * @param array $srcsetWidths Additional srcset widths
+     * @param boolean $withSrc render a src attribute
      * @return string an <img...> html tag
      */
-    public function render(ImageInterface $image = null, $width = null, $maximumWidth = null, $height = null, $maximumHeight = null, $allowCropping = false, $allowUpScaling = false, $async = false, $preset = null, $srcsetWidths = [])
+    public function render(ImageInterface $image = null, $width = null, $maximumWidth = null, $height = null, $maximumHeight = null, $allowCropping = false, $allowUpScaling = false, $async = false, $preset = null, $srcsetWidths = [], $withSrc = true)
     {
         if ($image === null) {
             return '';
@@ -131,7 +132,9 @@ class ResponsiveImageViewHelper extends AbstractTagBasedViewHelper
             return '';
         }
 
-        $this->tag->addAttribute('src', $thumbnailData['src']);
+        if ($withSrc) {
+            $this->tag->addAttribute('src', $thumbnailData['src']);
+        }
 
         if ($thumbnailData['width'] > 0 && $thumbnailData['height'] > 0) {
             $this->tag->addAttributes(array(

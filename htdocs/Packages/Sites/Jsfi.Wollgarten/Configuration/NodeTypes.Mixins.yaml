@@ -16,6 +16,18 @@
         'Neos.Neos/Validation/StringLengthValidator':
           maximum: 60
 
+'Jsfi.Wollgarten:NavBgMixin':
+  abstract: TRUE
+  properties:
+    navBg:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: i18n
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'document'
+          position: 10010
+
 'Jsfi.Wollgarten:AnchorMixin':
   abstract: TRUE
   ui:
